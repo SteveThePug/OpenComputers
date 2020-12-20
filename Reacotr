@@ -1,0 +1,8 @@
+local component = require("component")
+local os = require("os")
+
+function locate()
+	for address, _ in component.list("nc_fission_reactor") do
+		print(address + _)
+	end
+end
