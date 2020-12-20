@@ -3,9 +3,24 @@ local os = require("os")
 
 function locate()
 	for address, _ in component.list("nc_fission_reactor") do
-		print("Found reactor at: " + address)
+		print("Found reactor at: ")
+		print(address)
 		return address
 	end
 end
 
-locate()
+function over(energy)
+	if energy > 10000 do
+		reactor.deactivate()
+	else
+		reactor.activate()
+	end
+end
+
+local reactor = component.proxy(locate())
+
+
+while not stopping do
+	energy = reactor.getEnergyStored()
+	over(energy)
+end
