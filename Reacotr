@@ -41,4 +41,3 @@ while not stopping do
 	end
 	clear()
 end
-a
