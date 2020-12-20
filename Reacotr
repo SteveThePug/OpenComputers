@@ -2,6 +2,11 @@ local component = require("component")
 local os = require("os")
 local gpu = component.gpu
 
+function clear()
+	local w, h = gpu.getResolution()
+	gpu.fill(1, 1, w, h, " ")
+end
+
 function locate()
 	for address, _ in component.list("nc_fission_reactor") do
 		print("Found reactor at: ")
@@ -22,7 +27,7 @@ address = locate()
 reactor = component.proxy(address)
 while not stopping do
 	energy = reactor.getEnergyStored()
-	clear
+	clear()
 	if over(energy) then
 		reactor.deactivate()
 		os.sleep(1)
