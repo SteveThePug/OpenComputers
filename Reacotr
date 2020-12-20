@@ -28,7 +28,6 @@ address = locate()
 reactor = component.proxy(address)
 while not stopping do
 	energy = reactor.getEnergyStored()
-	clear()
 	if over(energy) then
 		reactor.deactivate()
 		os.sleep(1)
@@ -40,5 +39,6 @@ while not stopping do
 		print("low")
 		print(energy)
 	end
+	clear()
 end
 a
