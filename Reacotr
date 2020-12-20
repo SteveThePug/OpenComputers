@@ -18,7 +18,7 @@ function over(energy)
 end
 
 address = locate()
-local reactor = component.proxy(address)
+reactor = component.proxy(address)
 while not stopping do
 	energy = reactor.getEnergyStored()
 	over(energy)
