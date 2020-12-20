@@ -1,5 +1,6 @@
 local component = require("component")
 local os = require("os")
+local reactor = component.proxy(locate())
 
 function locate()
 	for address, _ in component.list("nc_fission_reactor") do
@@ -16,8 +17,6 @@ function over(energy)
 		reactor.activate()
 	end
 end
-
-reactor = component.proxy(locate())
 
 
 while not stopping do
