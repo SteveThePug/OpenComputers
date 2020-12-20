@@ -10,7 +10,7 @@ function locate()
 end
 
 function over(energy)
-	if energy > 10000 then
+	if energy > 100000 then
 		return true
 	else
 		return false
@@ -23,11 +23,13 @@ while not stopping do
 	energy = reactor.getEnergyStored()
 	if over(energy) then
 		reactor.deactivate()
-		os.sleep(3)
+		os.sleep(1)
 		print("high")
+		print(energy)
 	else
 		reactor.activate()
-		os.sleep(3)
+		os.sleep(1)
 		print("low")
+		print(energy)
 	end
 end
