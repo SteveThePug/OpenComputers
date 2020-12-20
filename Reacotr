@@ -11,9 +11,9 @@ end
 
 function over(energy)
 	if energy > 10000 then
-		reactor.deactivate()
+		return true
 	else
-		reactor.activate()
+		return false
 	end
 end
 
@@ -21,5 +21,13 @@ address = locate()
 reactor = component.proxy(address)
 while not stopping do
 	energy = reactor.getEnergyStored()
-	over(energy)
+	if over(energy) then
+		reactor.deactivate()
+		os.sleep(3)
+		print("high")
+	else
+		reactor.activate()
+		os.sleep(3)
+		print("low")
+	end
 end
