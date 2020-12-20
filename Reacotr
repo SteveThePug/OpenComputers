@@ -10,7 +10,7 @@ function locate()
 end
 
 function over(energy)
-	if energy > 10000 do
+	if energy > 10000 then
 		reactor.deactivate()
 	else
 		reactor.activate()
