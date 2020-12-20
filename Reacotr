@@ -3,6 +3,9 @@ local os = require("os")
 
 function locate()
 	for address, _ in component.list("nc_fission_reactor") do
-		print(address + _)
+		print("Found reactor at: " + address)
+		return address
 	end
 end
+
+locate()
