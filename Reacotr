@@ -5,7 +5,7 @@ local gpu = component.gpu
 function clear()
 	local w, h = gpu.getResolution()
 	gpu.fill(1, 1, w, h, " ")
-	gpu.set(w,h)
+	gpu.set(w,h,"")
 end
 
 function locate()
